@@ -1,5 +1,5 @@
--- V1.1 by Warlord (aka BlackLibrary)
--- DED Display, UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
+-- V1.2 by Warlord (aka BlackLibrary)
+-- DED Display, MAGV,INS,UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -777,6 +777,18 @@ DEDLayout_l1["STEERPOINT NUMBER Asteriscs_both"] = {11,1,15,"","I"}
 DEDLayout_l1["BINGO label"] = {9,5}
 DEDLayout_l1["BINGO STPT Num"] = {20,2}
 DEDLayout_l1["BINGO IncDecSymbol"] = {21,1}
+--INS
+DEDLayout_l1["INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["INS_STPT_IncDecSymbol"] = {23,1}
+DEDLayout_l1["INS_lbl"] = {2,3}
+DEDLayout_l1["INS_AlignTime"] = {7,4}
+DEDLayout_l1["INS_AlignSlash"] = {11,1}
+DEDLayout_l1["INS_AlignStatusCode"] = {12,2}
+DEDLayout_l1["INS_Ready"] = {15,3}
+DEDLayout_l1["INFLT ALGN INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["INFLT ALGN INS_STPT_IncDecSymbol"] = {23,1}
+DEDLayout_l1["INFLT ALGN INS_lbl"] = {4,3}
+DEDLayout_l1["INFLT ALGN INS_INFLT_ALGN_lbl"] = {8,10}
 --CMDS
 DEDLayout_l1["CMDS_Prog_label"] = {15,4}
 DEDLayout_l1["CMDS_Selected_Program"] = {21,2}
@@ -794,6 +806,10 @@ DEDLayout_l1["Master_mode"] = {10,3,0,"_inv","I"}
 DEDLayout_l1["Master_mode_ast_both"] = {9, 1, 13,"","I"}
 --Misc
 DEDLayout_l1["MISC Label"] = {10,4}
+--MAGV
+DEDLayout_l1["MAGV lbl"] = {7,4}
+DEDLayout_l1["MAGV Mode"] = {13,4}
+DEDLayout_l1["Asterisks_on_MAGV_Mode_both"] = {12,1,17,"","I"}
 --LASER
 DEDLayout_l1["LASR LABEL"] = {11,4}
 --INTG
@@ -814,7 +830,7 @@ DEDLayout_l2["Active Frequency or Channel"]={2,6}
 DEDLayout_l2["Active Frequency or Channe"]={2,6}
 --IFF
 DEDLayout_l2["STAT Mode Asterisks_both"]={17,1,23,"","I"}
-DEDLayout_l2["STAT Mode Scratchpad"]={14,5,0,"_inv","I"}
+DEDLayout_l2["STAT Mode Scratchpad"]={18,5,0,"_inv","I"}
 --List
 DEDLayout_l2["List Item 1 Number"]={0,1,0,"","I"}
 DEDLayout_l2["List Item 1 Name"]={1,4}
@@ -828,6 +844,10 @@ DEDLayout_l2["List Item R Name"]={19,4}
 DEDLayout_l2["STEERPOINT Latitude"] = {3,3}
 DEDLayout_l2["STEERPOINT Latitude Value"] = {8,12,0,"_inv","I"}
 DEDLayout_l2["STEERPOINT Latitude Asteriscs_both"] = {7,1,20,"","I"}
+--INS
+DEDLayout_l2["INS_LAT_lbl"] = {2,3}
+DEDLayout_l2["INS_LAT_Scratchpad"] = {7,10,0,"_inv","I"}
+DEDLayout_l2["Asterisks_on_LAT_Scratchpad_both"] = {6,1,17,"","I"}
 --CMDS
 DEDLayout_l2["CMDS_BQ_lbl"] = {6,2}
 DEDLayout_l2["CMDS_BQ_Scratchpad"] = {10,2,0,"_inv","I"}
@@ -916,6 +936,13 @@ DEDLayout_l3["STEERPOINT Longitude Asteriscs_both"] = {7,1,20,"","I"}
 DEDLayout_l3["SET label"] = {6,3}
 DEDLayout_l3["BINGO Asterisks_both"] = {10,1,19,"","I"}
 DEDLayout_l3["BINGO Scratchpad"] = {11,8,0,"_inv","I"}
+--INS
+DEDLayout_l3["INS_LNG_lbl"] = {2,3}
+DEDLayout_l3["INS_LNG_Scratchpad"] = {7,10,0,"_inv","I"}
+DEDLayout_l3["Asterisks_on_LNG_Scratchpad_both"] = {6,1,17,"","I"}
+DEDLayout_l3["INFLT ALGN INS_COMPASS_HDG_lbl"] = {3,11}
+DEDLayout_l3["INFLT ALGN INS_CompassHdgScratchpad"] = {16,4,0,"_inv","I"}
+DEDLayout_l3["INFLT ALGN Asterisks on Scratchpad_both"] = {15,1,20,"","I"}
 --CMDS
 DEDLayout_l3["CMDS_BI_lbl"] = {6,2}
 DEDLayout_l3["CMDS_BI_Scratchpad"] = {10,6,0,"_inv","I"}
@@ -935,6 +962,9 @@ DEDLayout_l3["Misc Item 6 Number"]={12,1,0,"","I"}
 DEDLayout_l3["Misc Item 6 Name"]={13,4}
 DEDLayout_l3["Misc Item E Number"]={18,1,0,"","I"}
 DEDLayout_l3["Misc Item E Name"]={19,4}
+--MAGV
+DEDLayout_l3["INS_MAGV_Scratchpad"] = {9,6,0,"_inv","I"}
+DEDLayout_l3["Asterisks_on_MAGV_Scratchpad_both"] = {8,1,15,"","I"}
 --LASER
 DEDLayout_l3["LST CODE LABEL"] = {1,8}
 DEDLayout_l3["LST CODE VALUE"] = {13,4,0,"_inv","I"}
@@ -1013,6 +1043,11 @@ DEDLayout_l4["STEERPOINT Elevation Asteriscs_both"] = {7,1,16,"","I"}
 DEDLayout_l4["TOTAL label"] = {4,5}
 DEDLayout_l4["TOTAL value"] = {11,5}
 DEDLayout_l4["TOTAL LBS label"] = {16,3}
+--INS
+DEDLayout_l4["INS_SALT_lbl"] = {1,4}
+DEDLayout_l4["INS_SALT_Scratchpad"] = {8,7,0,"_inv","I"}
+DEDLayout_l4["Asterisks_on_SALT_Scratchpad_both"] = {7,1,15,"","I"}
+DEDLayout_l4["INS_FIX_NECESSARY_lbl"] = {3,17}
 --CMDS
 DEDLayout_l4["CMDS_SQ_lbl"] = {6,2}
 DEDLayout_l4["CMDS_SQ_Scratchpad"] = {10,2,0,"_inv","I"}
@@ -1091,6 +1126,11 @@ DEDLayout_l5["TCN BAND Key"] = {6,3}
 DEDLayout_l5["STEERPOINT Time over current STP"] = {3,3}
 DEDLayout_l5["STEERPOINT TOS Value"] = {8,8,0,"_inv","I"}
 DEDLayout_l5["STEERPOINT TOS Asteriscs_both"] = {7,1,16,"","I"}
+--INS
+DEDLayout_l5["INS_THDG_lbl"] = {1,4}
+DEDLayout_l5["INS_THDG_value"] = {7,6}
+DEDLayout_l5["INS_GS_lbl"] = {16,3}
+DEDLayout_l5["INS_GS_value"] = {20,3}
 --CMDS
 DEDLayout_l5["CMDS_SI_lbl"] = {6,2}
 DEDLayout_l5["CMDS_SI_Scratchpad"] = {10,6,0,"_inv","I"}
@@ -1147,24 +1187,6 @@ local function mergeString(original_string, new_data, location)
 	end
 	return before..table.concat(merged)..after
 end
-
-function spairs(t)
-    -- collect the keys
-    local keys = {}
-    for k in pairs(t) do keys[#keys+1] = k end
-
-    table.sort(keys)
-
-    -- return the iterator function
-    local i = 0
-    return function()
-        i = i + 1
-        if keys[i] then
-            return keys[i], t[keys[i]]
-        end
-    end
-end
-
 ------------------------------------------------------------------DED Display Main Function-------------------------------------------------------------------------
 local function buildDEDLine(line)
 -- Get Layout Information for line being built
@@ -1184,6 +1206,7 @@ local function buildDEDLine(line)
 	local event = DED_fields["Event Occured"]
 	local alow =  DED_fields["ALOW label"]
 	local bingo = DED_fields["CMDS_BINGO_lbl"]
+	local inflt_algn = DED_fields["INS_INFLT_ALGN_lbl"]
 
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
@@ -1202,6 +1225,9 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on CMDS Bingo page Line 1 items
 		elseif bingo ~= nil and line == 1 then
 			label = bingo.." "..k
+-- Handle Duplicate Key Names on INS INFL ALGN page Lines 1 & 3 items
+		elseif inflt_algn ~= nil and (line == 1 or line==3) then
+			label = inflt_algn.." "..k
 		else
 			label = k
 		end
@@ -1250,7 +1276,6 @@ defineString("DED_LINE_4", function() return DEDLine4 end, 25, "DED Output Data"
 defineString("DED_LINE_5", function() return DEDLine5 end, 25, "DED Output Data", "DED Display Line 5")
 
 ------------------------------------------------------------------CMDS Display--------------------------------------------------------------------------------------
-local CMDS_O1_Amount
 local CMDS_O1_Amount
 local CMDS_O2_Amount
 local CMDS_CH_Amount
