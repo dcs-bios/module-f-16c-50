@@ -1208,7 +1208,7 @@ local formatReplacements = {
 	["."] = "_",
 	["a"] = "@",
 	["o"] = "?",
-    ["\'"] = ">".
+    ["\'"] = ">",
     [":"] = "`"
 }
 
@@ -1259,7 +1259,7 @@ local function buildDEDLine(line)
 --Get layout data associated with current key
 		layout = DEDLayoutLine[label:gsub("_inv","",1):gsub("_lhs","_both",1)]
 		if layout ~= nil then
-    local tempValue
+  		local tempValue
 --If layout value 6 is present then use this value to override the value returned from DCS
 			if layout[6] ~= nil then
 				tempValue = layout[6]
@@ -1390,7 +1390,7 @@ defineString("EHSI_Course_setting", function() return Course_setting end, 3, "EH
 defineString("EHSI_Mode_Left", function() return Mode_Left end, 3, "EHSI", "EHSI Mode Left")
 defineString("EHSI_Mode_Right", function() return Mode_Right end, 3, "EHSI", "EHSI Mode Right")
 defineString("EHSI_Range", function() return Range end, 8 , "EHSI", "EHSI Range")
-defineString("EHSI_Invalid_Range", function() return Invalid_Range end, 1 , "EHSI", "EHSI Invalid Range")
+defineString("EHSI_Invalid_Range", function() return Invalid_Range end, 1 , "EHSI", "EHSI Invalid Range Flag")
 defineRotary("EHSI_BRT_KNOB_ROTARY", 28, 3004, 44, "EHSI", "EHSI Brightness Control Knob - Rotate to adjust brightness")
 
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
