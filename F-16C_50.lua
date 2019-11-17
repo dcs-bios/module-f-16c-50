@@ -1187,31 +1187,6 @@ local function mergeString(original_string, new_data, location)
 	end
 	return before..table.concat(merged)..after
 end
-
-local generalReplacements = {
-	["a"] = "@",
-	["o"] = "="
-	}
-local formatReplacements = {
-	["*"] = "<",
-	[" "] = ";",
-	["0"] = "!",
-	["1"] = "\"",
-	["2"] = "#",
-	["3"] = "$",
-	["4"] = "%",
-	["5"] = "&",
-	["6"] = "+",
-	["7"] = ",",
-	["8"] = "-",
-	["9"] = "^",
-	["."] = "_",
-	["a"] = "@",
-	["o"] = "?",
-    ["\'"] = ">".
-    [":"] = "`"
-}
-
 ------------------------------------------------------------------DED Display Main Function-------------------------------------------------------------------------
 local function buildDEDLine(line)
 -- Get Layout Information for line being built
@@ -1259,20 +1234,11 @@ local function buildDEDLine(line)
 --Get layout data associated with current key
 		layout = DEDLayoutLine[label:gsub("_inv","",1):gsub("_lhs","_both",1)]
 		if layout ~= nil then
-    local tempValue
 --If layout value 6 is present then use this value to override the value returned from DCS
 			if layout[6] ~= nil then
-				tempValue = layout[6]
+				value = layout[6]
 			else
-				tempValue = v
-			end
---If layout value 5 is present then use this value to populate the Format section of the output otherwise return ""
-			if layout[5] ~= nil and (layout[4] == "" or layout[4] == label:sub(#layout[4]*-1)) then
-				if layout[5] == "I" then
-					value = tempValue:gsub(".",formatReplacements):lower()
-				end
-			else
-				value = tempValue:gsub(".",generalReplacements)
+				value = v
 			end
 			
 -- Add Value to dataLine using mergeString because some values are are supposed to fit within others
