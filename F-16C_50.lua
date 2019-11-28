@@ -1,5 +1,5 @@
--- V1.1 by Warlord (aka BlackLibrary)
--- DED Display, UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
+-- V1.2 by Warlord (aka BlackLibrary)
+-- DED Display, MAGV,INS,UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
 BIOS.protocol.beginModule("F-16C_50", 0x4400)
@@ -162,6 +162,8 @@ definePotentiometer("PRI_DATA_DISPLAY_BRT_KNB", 12, 3005, 687, nil, "Interior Li
 definePotentiometer("FLOOD_CONSOLES_BRT_KNB", 12, 3006, 688, nil, "Interior Lights", "FLOOD CONSOLES BRT Knob")
 definePotentiometer("FLOOD_INST_PNL_BRT_KNB", 12, 3007, 690, nil, "Interior Lights", "FLOOD INST PNL BRT Knob")
 defineSpringloaded_3_pos_tumb("MAL_IND_LTS_BRT_SW", 12, 3009, 3008, 691, "External Lights", "MAL & IND LTS Switch, BRT/Center/DIM")
+definePotentiometer("AOA_INDEX_BRT_KNB", 12, 3010, 794, nil, "Interior Lights", "AOA Indexer Dimming Lever")
+definePotentiometer("AOA_INDEX_BRT_KNB", 12, 3011, 795, nil, "Interior Lights", "AR Status Indicator Dimming Lever")
 
 --Electric System
 define3PosTumb("MAIN_PWR_SW", 3, 3001, 510, "Electric System", "MAIN PWR Switch, MAIN PWR/BATT/OFF")
@@ -619,6 +621,8 @@ defineIndicatorLight("LIGHT_MARKER_BEACON", 157, "Warning, Caution and Indicator
 
 ------------------------------------------------------------------Gauges--------------------------------------------------------------------------------------------
 defineFloat("CANOPY_VALUE", 7, {0.0, 1.0}, "Cockpit Mechanics", "Canopy Position")
+defineFloat("SEAT_HEIGHT", 783, {-1.0, 1.0}, "Cockpit Mechanics", "Seat Height")
+
 --AOA				
 defineFloat("AOA_VALUE", 15, {-1.0, 1.0}, "AoA", "AoA Value")
 
@@ -657,7 +661,7 @@ defineFloat("ADI_AUX_FLAG", 14, {0.0, 1.0}, "ADI", "ADI AUX Flag")
 defineFloat("ADI_GS_FLAG", 26, {0.0, 1.0},"ADI", "ADI GS Flag")
 defineFloat("ADI_LOC_BAR", 20, {-1, 1}, "ADI", "ADI LOC Bar")
 defineFloat("ADI_GS_BAR", 21, {-1, 1}, "ADI", "ADI GS Bar")
-defineFloat("ADI_TURNRATE", 23, {-1, 1}, "ADI", "ADI TurnRate")
+defineFloat("ADI_TURNRATE", 23, {-3, 3}, "ADI", "ADI TurnRate")
 defineFloat("ADI_GS_POINTER", 27, {-1, 1}, "ADI", "ADI GS Pointer")
 defineFloat("ADI_BUBBLE", 24, {-1, 1}, "ADI", "ADI Bubble")
 
@@ -1479,26 +1483,24 @@ defineIntegerFromGetter("EXT_SPEED_BRAKE_LEFT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(184)*65535)
 end, 65535, "External Aircraft Model", "Left Speed Brake")
 
--- defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
-	-- return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
--- end, 65535, "External Aircraft Model", "Formation Lights")
+defineIntegerFromGetter("EXT_FORMATION_LIGHTS", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(200)*65535)
+end, 65535, "External Aircraft Model", "Formation Lights")
 
--- defineIntegerFromGetter("EXT_POSITION_LIGHT_LEFT", function()
-	-- if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
--- end, 1, "External Aircraft Model", "Left Position Light (red)")
--- defineIntegerFromGetter("EXT_POSITION_LIGHT_RIGHT", function()
-	-- if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
--- end, 1, "External Aircraft Model", "Right Position Light (green)")
+defineIntegerFromGetter("EXT_TAIL_LIGHT", function()
+	return math.floor(LoGetAircraftDrawArgumentValue(202)*65535)
+end, 65535, "External Aircraft Model", "Tail Lights")
 
--- defineIntegerFromGetter("EXT_STROBE_TAIL", function()
-	-- if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
--- end, 1, "External Aircraft Model", "Tail Strobe Light")
--- defineIntegerFromGetter("EXT_STROBE_LEFT", function()
-	-- if LoGetAircraftDrawArgumentValue(195) > 0 then return 1 else return 0 end
--- end, 1, "External Aircraft Model", "Left Strobe Light")
--- defineIntegerFromGetter("EXT_STROBE_RIGHT", function()
-	-- if LoGetAircraftDrawArgumentValue(196) > 0 then return 1 else return 0 end
--- end, 1, "External Aircraft Model", "Right Strobe Light")
+defineIntegerFromGetter("EXT_POSITION_LIGHTS_WING", function()
+	if LoGetAircraftDrawArgumentValue(190) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Wing Position Lights (L-red; R-green)")
 
+defineIntegerFromGetter("EXT_POSITION_LIGHT_FUSELAGE", function()
+	if LoGetAircraftDrawArgumentValue(191) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Fuselage Position Lights (L-red; R-green;Back-white)")
+
+defineIntegerFromGetter("EXT_STROBE_TAIL", function()
+	if LoGetAircraftDrawArgumentValue(192) > 0 then return 1 else return 0 end
+end, 1, "External Aircraft Model", "Tail Strobe Light")
 
 BIOS.protocol.endModule()
