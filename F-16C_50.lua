@@ -758,7 +758,7 @@ DEDLayout_l1["TIM Event Occured"] = {18,3,0,"","I"}
 DEDLayout_l1["TIM Code Group State"] = {22,1}
 DEDLayout_l1["TIM IncDec Symbol"] = {23,1}
 DEDLayout_l1["IFF label_backup"] = {8,3}
-DEDLayout_l1["STATus"] = {12,4}
+DEDLayout_l1["STATUS"] = {12,4}
 --List
 DEDLayout_l1["LIST Label"] = {10,4}
 --T-ILS
@@ -886,10 +886,10 @@ DEDLayout_l2["GPS TIME status"] = {9,3,0,"_inv","I"}
 DEDLayout_l2["Asterisks on ETR_both"] = {8,1,12,"","I"}
 DEDLayout_l2["IPF Reset lbl"] = {14,9,0,"_inv","I"}
 DEDLayout_l2["Asterisks on IPF_both"] = {13,1,23,"","I"}
-DEDLayout_l2["XMT lbl"] = {3,3}
-DEDLayout_l2["XMT value"] = {7,2}
-DEDLayout_l2["COMM lbl"] = {12,4}
-DEDLayout_l2["COMM status"] = {17,3}
+DEDLayout_l2["A-G DL XMT lbl"] = {3,3}
+DEDLayout_l2["A-G DL XMT value"] = {7,2}
+DEDLayout_l2["A-G DL COMM lbl"] = {12,4}
+DEDLayout_l2["A-G DL COMM status"] = {17,3}
 DEDLayout_l2["INTRAFLIGHT STN id lbl1"] = {1,2}
 DEDLayout_l2["INTRAFLIGHT STN value1"] = {4,5}
 DEDLayout_l2["INTRAFLIGHT STN id lbl5"] = {7,2}
@@ -1130,8 +1130,8 @@ DEDLayout_l4["SC lbl"] = {3,2}
 DEDLayout_l4["SC value"] = {6,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks on SC_both"] = {5,1,9,"","I"}
 DEDLayout_l4["XMT lbl"] = {11,3}
-DEDLayout_l4["XMT status"] = {16,2,0,"_inv","I"}
-DEDLayout_l4["Asterisks on XMT_both"] = {15,1,18,"","I"}
+DEDLayout_l4["XMT status"] = {16,4,0,"_inv","I"}
+DEDLayout_l4["Asterisks on XMT_both"] = {15,1,20,"","I"}
 DEDLayout_l4["NTR lbl"] = {5,3}
 DEDLayout_l4["NTR status"] = {9,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks on NTR_both"] = {8,1,12,"","I"}
@@ -1303,12 +1303,13 @@ local generalReplacements = {
 	["a"] = "@",
 	["o"] = "="
 	}
+	
 local formatReplacements = {
 	["*"] = "<",
 	[" "] = ";",
 	["0"] = "!",
 	["1"] = "\"",
-	["2"] = "#",
+	["2"] = "{",
 	["3"] = "$",
 	["4"] = "%",
 	["5"] = "&",
@@ -1319,7 +1320,7 @@ local formatReplacements = {
 	["."] = "_",
 	["a"] = "@",
 	["o"] = "?",
-    ["\'"] = ">".
+    ["\'"] = "|",
     [":"] = "`"
 }
 
@@ -1344,6 +1345,7 @@ local function buildDEDLine(line)
 	local bingo = DED_fields["CMDS_BINGO_lbl"]
 	local inflt_algn = DED_fields["INS_INFLT_ALGN_lbl"]
 	local intraflight = DED_fields["INTRAFLIGHT lbl"]
+	local dlnk_A_G= DED_fields["A-G DL lbl"]
 
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
@@ -1368,6 +1370,9 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on DLNK INTRAFLIGHT page
 		elseif intraflight ~= nil then
 			label = intraflight.." "..k
+-- Handle Duplicate Key Names on DLNK A-G page Line 2 items
+		elseif dlnk_A_G ~= nil and line == 2 then
+			label = dlnk_A_G.." "..k
 		else
 			label = k
 		end
