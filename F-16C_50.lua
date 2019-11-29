@@ -883,7 +883,7 @@ DEDLayout_l2["STN value5"] = {12,5}
 DEDLayout_l2["OWN lbl"] = {18,3}
 DEDLayout_l2["GPS TIME lbl"] = {0,8}
 DEDLayout_l2["GPS TIME status"] = {9,3,0,"_inv","I"}
-DEDLayout_l2["Asterisks on ETR_both"] = {8,1,14,"","I"}
+DEDLayout_l2["Asterisks on ETR_both"] = {8,1,12,"","I"}
 DEDLayout_l2["IPF Reset lbl"] = {14,9,0,"_inv","I"}
 DEDLayout_l2["Asterisks on IPF_both"] = {13,1,23,"","I"}
 DEDLayout_l2["XMT lbl"] = {3,3}
@@ -1298,6 +1298,31 @@ local function mergeString(original_string, new_data, location)
 	end
 	return before..table.concat(merged)..after
 end
+
+local generalReplacements = {
+	["a"] = "@",
+	["o"] = "="
+	}
+local formatReplacements = {
+	["*"] = "<",
+	[" "] = ";",
+	["0"] = "!",
+	["1"] = "\"",
+	["2"] = "#",
+	["3"] = "$",
+	["4"] = "%",
+	["5"] = "&",
+	["6"] = "+",
+	["7"] = ",",
+	["8"] = "-",
+	["9"] = "^",
+	["."] = "_",
+	["a"] = "@",
+	["o"] = "?",
+    ["\'"] = ">".
+    [":"] = "`"
+}
+
 ------------------------------------------------------------------DED Display Main Function-------------------------------------------------------------------------
 local function buildDEDLine(line)
 -- Get Layout Information for line being built
@@ -1346,16 +1371,26 @@ local function buildDEDLine(line)
 		else
 			label = k
 		end
+		
 --Get layout data associated with current key
 		layout = DEDLayoutLine[label:gsub("_inv","",1):gsub("_lhs","_both",1)]
 		if layout ~= nil then
+			local tempValue
 --If layout value 6 is present then use this value to override the value returned from DCS
 			if layout[6] ~= nil then
-				value = layout[6]
+				tempValue = layout[6]
 			else
-				value = v
+				tempValue = v
 			end
-			
+--If layout value 5 is present then use this value to populate the Format section of the output otherwise return ""
+			if layout[5] ~= nil and (layout[4] == "" or layout[4] == label:sub(#layout[4]*-1)) then
+				if layout[5] == "I" then
+					value = tempValue:gsub(".",formatReplacements):lower()
+				end
+			else
+				value = tempValue:gsub(".",generalReplacements)
+			end
+		
 -- Add Value to dataLine using mergeString because some values are are supposed to fit within others
 			dataLine = mergeString(dataLine, value, layout[1])
 
@@ -1365,7 +1400,7 @@ local function buildDEDLine(line)
 			end
 		end
 	end
-    return dataLine
+	return dataLine
 end
 
 local DEDLine1 = ""
