@@ -743,10 +743,10 @@ DEDLayout_l1["Receiver Power Status"] = {15,2}
 DEDLayout_l1["GUARD VHF Label"] = {8,3}
 DEDLayout_l1["GUARD COM 2 Receiver Mode"] = {13,2}
 --IFF
-DEDLayout_l1["STAT IFF label"] = {1,3}
-DEDLayout_l1["STAT IFF Power Status"] = {5,3}
-DEDLayout_l1["STAT Mode label"] = {12,3}
-DEDLayout_l1["STAT Event Occured"] = {18,3}
+DEDLayout_l1["P/T IFF label"] = {1,3}
+DEDLayout_l1["P/T IFF Power Status"] = {5,3}
+DEDLayout_l1["P/T Mode label"] = {12,3}
+DEDLayout_l1["P/T Event Occured"] = {18,3}
 DEDLayout_l1["POS IFF label"] = {1,3}
 DEDLayout_l1["POS IFF Power Status"] = {5,3,0,"","I"}
 DEDLayout_l1["POS Event Occured"] = {18,3,0,"","I"}
@@ -757,8 +757,8 @@ DEDLayout_l1["TIM IFF Power Status"] = {5,3}
 DEDLayout_l1["TIM Event Occured"] = {18,3,0,"","I"}
 DEDLayout_l1["TIM Code Group State"] = {22,1}
 DEDLayout_l1["TIM IncDec Symbol"] = {23,1}
-DEDLayout_l1["IFF label_backup"] = {8,3}
-DEDLayout_l1["STATUS"] = {12,4}
+DEDLayout_l1["IFF label"] = {8,3}
+DEDLayout_l1["IFF Status"] = {12,4}
 --List
 DEDLayout_l1["LIST Label"] = {10,4}
 --T-ILS
@@ -840,8 +840,8 @@ DEDLayout_l2["Wind Speed"]={20,2}
 DEDLayout_l2["Active Frequency or Channel"]={2,6}
 DEDLayout_l2["Active Frequency or Channe"]={2,6}
 --IFF
-DEDLayout_l2["STAT Mode Asterisks_both"]={17,1,23,"","I"}
-DEDLayout_l2["STAT Mode Scratchpad"]={18,5,0,"_inv","I"}
+DEDLayout_l2["P/T Mode Asterisks_both"]={17,1,23,"","I"}
+DEDLayout_l2["P/T Mode Scratchpad"]={18,5,0,"_inv","I"}
 --List
 DEDLayout_l2["List Item 1 Number"]={0,1,0,"","I"}
 DEDLayout_l2["List Item 1 Name"]={1,4}
@@ -924,15 +924,15 @@ DEDLayout_l3["Guard or Backup Status"]={9,5}
 DEDLayout_l3["GUARD COM 2 Receiver Band"]={8,2}
 DEDLayout_l3["GUARD Guard Label"]={12,5}
 --IFF
-DEDLayout_l3["STAT M1 Mode"]={0,2,0,"_inv","I"}
-DEDLayout_l3["STAT M1 Lockout Status"]={3,1}
-DEDLayout_l3["STAT M1 Code"]={4,2}
-DEDLayout_l3["STAT M4 Mode"]={8,2,0,"_inv","I"}
-DEDLayout_l3["STAT M4 Code"]={12,1}
-DEDLayout_l3["STAT M4 Key"]={14,3}
-DEDLayout_l3["STAT POS EVENT - Side"]={19,1}
-DEDLayout_l3["STAT POS EVENT - OF"]={20,2}
-DEDLayout_l3["STAT POS EVENT - Number"]={22,1}
+DEDLayout_l3["P/T M1 Mode"]={0,2,0,"_inv","I"}
+DEDLayout_l3["P/T M1 Lockout Status"]={3,1}
+DEDLayout_l3["P/T M1 Code"]={4,2}
+DEDLayout_l3["P/T M4 Mode"]={8,2,0,"_inv","I"}
+DEDLayout_l3["P/T M4 Code"]={12,1}
+DEDLayout_l3["P/T M4 Key"]={14,3}
+DEDLayout_l3["P/T POS EVENT - Side"]={19,1}
+DEDLayout_l3["P/T POS EVENT - OF"]={20,2}
+DEDLayout_l3["P/T POS EVENT - Number"]={22,1}
 DEDLayout_l3["POS M1 Mode"]={1,2,0,"_inv","I"}
 DEDLayout_l3["POS M1 Lockout Status"]={3,1}
 DEDLayout_l3["POS M1 Code"]={4,5}
@@ -1058,13 +1058,13 @@ DEDLayout_l4["Preset Number"]={7,2,0,"_inv","I"}
 DEDLayout_l4["Asterisks on PresetChannel_both"]={6,1,9,"","I"}
 DEDLayout_l4["TOD Label"]={17,3}
 --IFF
-DEDLayout_l4["STAT M2 Mode"]={0,2,0,"_inv","I"}
-DEDLayout_l4["STAT M2 Lockout Status"]={3,1}
-DEDLayout_l4["STAT M2 Code"]={4,4}
-DEDLayout_l4["STAT MC Mode"]={9,2,0,"_inv","I"}
-DEDLayout_l4["STAT MC Code"]={12,1}
-DEDLayout_l4["STAT MC Key"]={14,3}
-DEDLayout_l4["STAT TIM EVENT - Time"]={18,5}
+DEDLayout_l4["P/T M2 Mode"]={0,2,0,"_inv","I"}
+DEDLayout_l4["P/T M2 Lockout Status"]={3,1}
+DEDLayout_l4["P/T M2 Code"]={4,4}
+DEDLayout_l4["P/T MC Mode"]={9,2,0,"_inv","I"}
+DEDLayout_l4["P/T MC Code"]={12,1}
+DEDLayout_l4["P/T MC Key"]={14,3}
+DEDLayout_l4["P/T TIM EVENT - Time"]={18,5}
 DEDLayout_l4["POS M2 Mode"]={1,2,0,"_inv","I"}
 DEDLayout_l4["POS M2 Lockout Status"]={3,1}
 DEDLayout_l4["POS M2 Code"]={4,4,0,"_inv","I"}
@@ -1182,14 +1182,14 @@ DEDLayout_l5["Asterisks on Band_both"]={17,1,20,"","I"}
 DEDLayout_l5["Preset Channel Number"]={20,2}
 DEDLayout_l5["Guard or Backup Frequency"]={10,6}
 --IFF
-DEDLayout_l5["STAT M3 Mode"] = {0,2,0,"_inv","I"}
-DEDLayout_l5["STAT M3 Lockout Status"] = {3,1}
-DEDLayout_l5["STAT M3 Code"] = {4,4}
-DEDLayout_l5["STAT M4 Monitoring"] = {9,3}
-DEDLayout_l5["STAT M4 Monitoring Key"] = {14,3}
-DEDLayout_l5["STAT MS Mode"] = {18,2,0,"_inv","I"}
-DEDLayout_l5["STAT MS Code"] = {20,1}
-DEDLayout_l5["STAT MS Key"] = {21,3}
+DEDLayout_l5["P/T M3 Mode"] = {0,2,0,"_inv","I"}
+DEDLayout_l5["P/T M3 Lockout Status"] = {3,1}
+DEDLayout_l5["P/T M3 Code"] = {4,4}
+DEDLayout_l5["P/T M4 Monitoring"] = {9,3}
+DEDLayout_l5["P/T M4 Monitoring Key"] = {14,3}
+DEDLayout_l5["P/T MS Mode"] = {18,2,0,"_inv","I"}
+DEDLayout_l5["P/T MS Code"] = {20,1}
+DEDLayout_l5["P/T MS Key"] = {21,3}
 DEDLayout_l5["POS M3 Mode"] = {1,2,0,"_inv","I"}
 DEDLayout_l5["POS M3 Lockout Status"] = {3,1}
 DEDLayout_l5["POS M3 Code"] = {4,4}
@@ -1299,31 +1299,6 @@ local function mergeString(original_string, new_data, location)
 	return before..table.concat(merged)..after
 end
 
-local generalReplacements = {
-	["a"] = "@",
-	["o"] = "="
-	}
-	
-local formatReplacements = {
-	["*"] = "<",
-	[" "] = ";",
-	["0"] = "!",
-	["1"] = "\"",
-	["2"] = "{",
-	["3"] = "$",
-	["4"] = "%",
-	["5"] = "&",
-	["6"] = "+",
-	["7"] = ",",
-	["8"] = "-",
-	["9"] = "^",
-	["."] = "_",
-	["a"] = "@",
-	["o"] = "?",
-    ["\'"] = "|",
-    [":"] = "`"
-}
-
 ------------------------------------------------------------------DED Display Main Function-------------------------------------------------------------------------
 local function buildDEDLine(line)
 -- Get Layout Information for line being built
@@ -1339,7 +1314,6 @@ local function buildDEDLine(line)
 
 -- Check for present of Objects that indicate Duplicate Key Names that need resolving
 	local guard = DED_fields["Guard Label"]
-	local mode =  DED_fields["Mode label"]
 	local event = DED_fields["Event Occured"]
 	local alow =  DED_fields["ALOW label"]
 	local bingo = DED_fields["CMDS_BINGO_lbl"]
@@ -1352,10 +1326,7 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on COM2 Guard page items        
 		if guard ~= nil then
 			label = guard.." "..k
--- Handle Duplicate Key Names on IFF STAT page items
-		elseif mode ~= nil then
-			label = mode.." "..k
--- Handle Duplicate Key Names on IFF POS & TIM page items
+-- Handle Duplicate Key Names on IFF page items
 		elseif event ~= nil then
 			label = event.." "..k
 -- Handle Duplicate Key Names on ALOW page Line 1 items
