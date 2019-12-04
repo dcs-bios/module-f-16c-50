@@ -1437,39 +1437,6 @@ end
 
 defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")  
 
-------------------------------------------------------------------EHSI Values--------------------------------------------------------------------------------------
-local Course_setting
-local Mode_Left
-local Mode_Right
-local Range
-local Invalid_Range
-
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	local ehsi = parse_indication(14)
-	Course_setting = "   "
-	Mode_left      = "   "
-	Mode_Right     = "   "
-	Range          = "        "
-	Invalid_Range  = "0"
-	if not ehsi then
-		return
-	end
-	Course_setting 				= coerce_nil_to_string(ehsi["Course Indicator Value"])
-	Mode_Left 				    = coerce_nil_to_string(ehsi["Mode Left"])
-	Mode_Right				    = coerce_nil_to_string(ehsi["Mode Right"])
-	Range 				        = coerce_nil_to_string(ehsi["Range Indicator Value"]).."."..coerce_nil_to_string(ehsi["Range Indicator DIGIT"]).." "..coerce_nil_to_string(ehsi["Range Indicator Label"])
-	if ehsi["InvalidRange Flag"] ~= nil then
-	   Invalid_Range = "1"
-	end
-end
-
-defineString("EHSI_Course_setting", function() return Course_setting end, 3, "EHSI", "EHSI Course Setting")
-defineString("EHSI_Mode_Left", function() return Mode_Left end, 3, "EHSI", "EHSI Mode Left")
-defineString("EHSI_Mode_Right", function() return Mode_Right end, 3, "EHSI", "EHSI Mode Right")
-defineString("EHSI_Range", function() return Range end, 8 , "EHSI", "EHSI Range")
-defineString("EHSI_Invalid_Range", function() return Invalid_Range end, 1 , "EHSI", "EHSI Invalid Range Flag")
-defineRotary("EHSI_BRT_KNOB_ROTARY", 28, 3004, 44, "EHSI", "EHSI Brightness Control Knob - Rotate to adjust brightness")
-
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
