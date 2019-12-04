@@ -1,4 +1,4 @@
--- V1.3 by Warlord (aka BlackLibrary)
+-- V1.3a by Warlord (aka BlackLibrary)
 -- DED Display, MAGV,INS,UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
@@ -743,10 +743,10 @@ DEDLayout_l1["Receiver Power Status"] = {15,2}
 DEDLayout_l1["GUARD VHF Label"] = {8,3}
 DEDLayout_l1["GUARD COM 2 Receiver Mode"] = {13,2}
 --IFF
-DEDLayout_l1["STAT IFF label"] = {1,3}
-DEDLayout_l1["STAT IFF Power Status"] = {5,3}
-DEDLayout_l1["STAT Mode label"] = {12,3}
-DEDLayout_l1["STAT Event Occured"] = {18,3}
+DEDLayout_l1["P/T IFF label"] = {1,3}
+DEDLayout_l1["P/T IFF Power Status"] = {5,3}
+DEDLayout_l1["P/T Mode label"] = {12,3}
+DEDLayout_l1["P/T Event Occured"] = {18,3}
 DEDLayout_l1["POS IFF label"] = {1,3}
 DEDLayout_l1["POS IFF Power Status"] = {5,3,0,"","I"}
 DEDLayout_l1["POS Event Occured"] = {18,3,0,"","I"}
@@ -757,8 +757,8 @@ DEDLayout_l1["TIM IFF Power Status"] = {5,3}
 DEDLayout_l1["TIM Event Occured"] = {18,3,0,"","I"}
 DEDLayout_l1["TIM Code Group State"] = {22,1}
 DEDLayout_l1["TIM IncDec Symbol"] = {23,1}
-DEDLayout_l1["IFF label_backup"] = {8,3}
-DEDLayout_l1["STATUS"] = {12,4}
+DEDLayout_l1["IFF label"] = {8,3}
+DEDLayout_l1["IFF Status"] = {12,4}
 --List
 DEDLayout_l1["LIST Label"] = {10,4}
 --T-ILS
@@ -840,8 +840,8 @@ DEDLayout_l2["Wind Speed"]={20,2}
 DEDLayout_l2["Active Frequency or Channel"]={2,6}
 DEDLayout_l2["Active Frequency or Channe"]={2,6}
 --IFF
-DEDLayout_l2["STAT Mode Asterisks_both"]={17,1,23,"","I"}
-DEDLayout_l2["STAT Mode Scratchpad"]={18,5,0,"_inv","I"}
+DEDLayout_l2["P/T Mode Asterisks_both"]={17,1,23,"","I"}
+DEDLayout_l2["P/T Mode Scratchpad"]={18,5,0,"_inv","I"}
 --List
 DEDLayout_l2["List Item 1 Number"]={0,1,0,"","I"}
 DEDLayout_l2["List Item 1 Name"]={1,4}
@@ -869,7 +869,7 @@ DEDLayout_l2["CMDS_CH_Asterisks_both"] = {6,1,9,"","I"}
 -- DLNK
 DEDLayout_l2["FC lbl"] = {3,2}
 DEDLayout_l2["FC value"] = {6,3,0,"_inv","I"}
-DEDLayout_l2["Asterisks on FC_both"] = {5,1,9,"","I"}
+DEDLayout_l2["Asterisks on FC_both"] = {15,1,20,"","I"}
 DEDLayout_l2["CallSign Name char1"] = {11,1,0,"_inv","I"}
 DEDLayout_l2["CallSign Name char2"] = {12,1,0,"_inv","I"}
 DEDLayout_l2["Asterisks on CS Name_both"] = {10,1,13,"","I"}
@@ -924,15 +924,15 @@ DEDLayout_l3["Guard or Backup Status"]={9,5}
 DEDLayout_l3["GUARD COM 2 Receiver Band"]={8,2}
 DEDLayout_l3["GUARD Guard Label"]={12,5}
 --IFF
-DEDLayout_l3["STAT M1 Mode"]={0,2,0,"_inv","I"}
-DEDLayout_l3["STAT M1 Lockout Status"]={3,1}
-DEDLayout_l3["STAT M1 Code"]={4,2}
-DEDLayout_l3["STAT M4 Mode"]={8,2,0,"_inv","I"}
-DEDLayout_l3["STAT M4 Code"]={12,1}
-DEDLayout_l3["STAT M4 Key"]={14,3}
-DEDLayout_l3["STAT POS EVENT - Side"]={19,1}
-DEDLayout_l3["STAT POS EVENT - OF"]={20,2}
-DEDLayout_l3["STAT POS EVENT - Number"]={22,1}
+DEDLayout_l3["P/T M1 Mode"]={0,2,0,"_inv","I"}
+DEDLayout_l3["P/T M1 Lockout Status"]={3,1}
+DEDLayout_l3["P/T M1 Code"]={4,2}
+DEDLayout_l3["P/T M4 Mode"]={8,2,0,"_inv","I"}
+DEDLayout_l3["P/T M4 Code"]={12,1}
+DEDLayout_l3["P/T M4 Key"]={14,3}
+DEDLayout_l3["P/T POS EVENT - Side"]={19,1}
+DEDLayout_l3["P/T POS EVENT - OF"]={20,2}
+DEDLayout_l3["P/T POS EVENT - Number"]={22,1}
 DEDLayout_l3["POS M1 Mode"]={1,2,0,"_inv","I"}
 DEDLayout_l3["POS M1 Lockout Status"]={3,1}
 DEDLayout_l3["POS M1 Code"]={4,5}
@@ -1058,13 +1058,13 @@ DEDLayout_l4["Preset Number"]={7,2,0,"_inv","I"}
 DEDLayout_l4["Asterisks on PresetChannel_both"]={6,1,9,"","I"}
 DEDLayout_l4["TOD Label"]={17,3}
 --IFF
-DEDLayout_l4["STAT M2 Mode"]={0,2,0,"_inv","I"}
-DEDLayout_l4["STAT M2 Lockout Status"]={3,1}
-DEDLayout_l4["STAT M2 Code"]={4,4}
-DEDLayout_l4["STAT MC Mode"]={9,2,0,"_inv","I"}
-DEDLayout_l4["STAT MC Code"]={12,1}
-DEDLayout_l4["STAT MC Key"]={14,3}
-DEDLayout_l4["STAT TIM EVENT - Time"]={18,5}
+DEDLayout_l4["P/T M2 Mode"]={0,2,0,"_inv","I"}
+DEDLayout_l4["P/T M2 Lockout Status"]={3,1}
+DEDLayout_l4["P/T M2 Code"]={4,4}
+DEDLayout_l4["P/T MC Mode"]={9,2,0,"_inv","I"}
+DEDLayout_l4["P/T MC Code"]={12,1}
+DEDLayout_l4["P/T MC Key"]={14,3}
+DEDLayout_l4["P/T TIM EVENT - Time"]={18,5}
 DEDLayout_l4["POS M2 Mode"]={1,2,0,"_inv","I"}
 DEDLayout_l4["POS M2 Lockout Status"]={3,1}
 DEDLayout_l4["POS M2 Code"]={4,4,0,"_inv","I"}
@@ -1130,8 +1130,8 @@ DEDLayout_l4["SC lbl"] = {3,2}
 DEDLayout_l4["SC value"] = {6,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks on SC_both"] = {5,1,9,"","I"}
 DEDLayout_l4["XMT lbl"] = {11,3}
-DEDLayout_l4["XMT status"] = {16,4,0,"_inv","I"}
-DEDLayout_l4["Asterisks on XMT_both"] = {15,1,20,"","I"}
+DEDLayout_l4["XMT status"] = {16,2,0,"_inv","I"}
+DEDLayout_l4["Asterisks on XMT_both"] = {15,1,18,"","I"}
 DEDLayout_l4["NTR lbl"] = {5,3}
 DEDLayout_l4["NTR status"] = {9,3,0,"_inv","I"}
 DEDLayout_l4["Asterisks on NTR_both"] = {8,1,12,"","I"}
@@ -1182,14 +1182,14 @@ DEDLayout_l5["Asterisks on Band_both"]={17,1,20,"","I"}
 DEDLayout_l5["Preset Channel Number"]={20,2}
 DEDLayout_l5["Guard or Backup Frequency"]={10,6}
 --IFF
-DEDLayout_l5["STAT M3 Mode"] = {0,2,0,"_inv","I"}
-DEDLayout_l5["STAT M3 Lockout Status"] = {3,1}
-DEDLayout_l5["STAT M3 Code"] = {4,4}
-DEDLayout_l5["STAT M4 Monitoring"] = {9,3}
-DEDLayout_l5["STAT M4 Monitoring Key"] = {14,3}
-DEDLayout_l5["STAT MS Mode"] = {18,2,0,"_inv","I"}
-DEDLayout_l5["STAT MS Code"] = {20,1}
-DEDLayout_l5["STAT MS Key"] = {21,3}
+DEDLayout_l5["P/T M3 Mode"] = {0,2,0,"_inv","I"}
+DEDLayout_l5["P/T M3 Lockout Status"] = {3,1}
+DEDLayout_l5["P/T M3 Code"] = {4,4}
+DEDLayout_l5["P/T M4 Monitoring"] = {9,3}
+DEDLayout_l5["P/T M4 Monitoring Key"] = {14,3}
+DEDLayout_l5["P/T MS Mode"] = {18,2,0,"_inv","I"}
+DEDLayout_l5["P/T MS Code"] = {20,1}
+DEDLayout_l5["P/T MS Key"] = {21,3}
 DEDLayout_l5["POS M3 Mode"] = {1,2,0,"_inv","I"}
 DEDLayout_l5["POS M3 Lockout Status"] = {3,1}
 DEDLayout_l5["POS M3 Code"] = {4,4}
@@ -1265,6 +1265,7 @@ DEDLayout_l5["INTG Scratchpad"] = {10,5,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Mode"] = {16,4,0,"_inv","I"}
 DEDLayout_l5["INTG COUPLE Key"] = {20,3}
 --DEDLayout_l5[""] = {,}
+
 DEDLayout = {DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5}
 
 ------------------------------------------------------------------DED Display Utility Functions---------------------------------------------------------------------
@@ -1298,32 +1299,6 @@ local function mergeString(original_string, new_data, location)
 	end
 	return before..table.concat(merged)..after
 end
-
-local generalReplacements = {
-	["a"] = "@",
-	["o"] = "="
-	}
-	
-local formatReplacements = {
-	["*"] = "<",
-	[" "] = ";",
-	["0"] = "!",
-	["1"] = "\"",
-	["2"] = "{",
-	["3"] = "$",
-	["4"] = "%",
-	["5"] = "&",
-	["6"] = "+",
-	["7"] = ",",
-	["8"] = "-",
-	["9"] = "^",
-	["."] = "_",
-	["a"] = "@",
-	["o"] = "?",
-    ["\'"] = "|",
-    [":"] = "`"
-}
-
 ------------------------------------------------------------------DED Display Main Function-------------------------------------------------------------------------
 local function buildDEDLine(line)
 -- Get Layout Information for line being built
@@ -1339,7 +1314,6 @@ local function buildDEDLine(line)
 
 -- Check for present of Objects that indicate Duplicate Key Names that need resolving
 	local guard = DED_fields["Guard Label"]
-	local mode =  DED_fields["Mode label"]
 	local event = DED_fields["Event Occured"]
 	local alow =  DED_fields["ALOW label"]
 	local bingo = DED_fields["CMDS_BINGO_lbl"]
@@ -1352,10 +1326,7 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on COM2 Guard page items        
 		if guard ~= nil then
 			label = guard.." "..k
--- Handle Duplicate Key Names on IFF STAT page items
-		elseif mode ~= nil then
-			label = mode.." "..k
--- Handle Duplicate Key Names on IFF POS & TIM page items
+-- Handle Duplicate Key Names on IFF page items
 		elseif event ~= nil then
 			label = event.." "..k
 -- Handle Duplicate Key Names on ALOW page Line 1 items
@@ -1376,26 +1347,16 @@ local function buildDEDLine(line)
 		else
 			label = k
 		end
-		
 --Get layout data associated with current key
 		layout = DEDLayoutLine[label:gsub("_inv","",1):gsub("_lhs","_both",1)]
 		if layout ~= nil then
-			local tempValue
 --If layout value 6 is present then use this value to override the value returned from DCS
 			if layout[6] ~= nil then
-				tempValue = layout[6]
+				value = layout[6]
 			else
-				tempValue = v
+				value = v
 			end
---If layout value 5 is present then use this value to populate the Format section of the output otherwise return ""
-			if layout[5] ~= nil and (layout[4] == "" or layout[4] == label:sub(#layout[4]*-1)) then
-				if layout[5] == "I" then
-					value = tempValue:gsub(".",formatReplacements):lower()
-				end
-			else
-				value = tempValue:gsub(".",generalReplacements)
-			end
-		
+			
 -- Add Value to dataLine using mergeString because some values are are supposed to fit within others
 			dataLine = mergeString(dataLine, value, layout[1])
 
@@ -1405,7 +1366,7 @@ local function buildDEDLine(line)
 			end
 		end
 	end
-	return dataLine
+    return dataLine
 end
 
 local DEDLine1 = ""
@@ -1480,39 +1441,6 @@ local function get_UHF_FREQUENCY()
 end
 
 defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")  
-
-------------------------------------------------------------------EHSI Values--------------------------------------------------------------------------------------
-local Course_setting
-local Mode_Left
-local Mode_Right
-local Range
-local Invalid_Range
-
-moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function()
-	local ehsi = parse_indication(14)
-	Course_setting = "   "
-	Mode_left      = "   "
-	Mode_Right     = "   "
-	Range          = "        "
-	Invalid_Range  = "0"
-	if not ehsi then
-		return
-	end
-	Course_setting 				= coerce_nil_to_string(ehsi["Course Indicator Value"])
-	Mode_Left 				    = coerce_nil_to_string(ehsi["Mode Left"])
-	Mode_Right				    = coerce_nil_to_string(ehsi["Mode Right"])
-	Range 				        = coerce_nil_to_string(ehsi["Range Indicator Value"]).."."..coerce_nil_to_string(ehsi["Range Indicator DIGIT"]).." "..coerce_nil_to_string(ehsi["Range Indicator Label"])
-	if ehsi["InvalidRange Flag"] ~= nil then
-	   Invalid_Range = "1"
-	end
-end
-
-defineString("EHSI_Course_setting", function() return Course_setting end, 3, "EHSI", "EHSI Course Setting")
-defineString("EHSI_Mode_Left", function() return Mode_Left end, 3, "EHSI", "EHSI Mode Left")
-defineString("EHSI_Mode_Right", function() return Mode_Right end, 3, "EHSI", "EHSI Mode Right")
-defineString("EHSI_Range", function() return Range end, 8 , "EHSI", "EHSI Range")
-defineString("EHSI_Invalid_Range", function() return Invalid_Range end, 1 , "EHSI", "EHSI Invalid Range Flag")
-defineRotary("EHSI_BRT_KNOB_ROTARY", 28, 3004, 44, "EHSI", "EHSI Brightness Control Knob - Rotate to adjust brightness")
 
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
