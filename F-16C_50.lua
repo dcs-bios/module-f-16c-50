@@ -1,4 +1,4 @@
--- V1.2 by Warlord (aka BlackLibrary)
+-- V1.3 by Warlord (aka BlackLibrary)
 -- DED Display, MAGV,INS,UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
