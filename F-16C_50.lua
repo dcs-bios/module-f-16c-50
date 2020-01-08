@@ -1,4 +1,4 @@
--- V1.4 by Warlord (aka BlackLibrary)
+-- V1.4a by Warlord (aka BlackLibrary)
 -- DED Display, MAGV,INS,UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
@@ -438,7 +438,7 @@ defineRotary("ADI_PITCH_TRIM", 50, 3001, 22, "ADI", "ADI Pitch Trim Knob")
 
 --EHSI
 definePushButton("EHSI_CRS_SET", 28, 3005, 43,"EHSI" , "EHSI CRS Set")
-definePotentiometer("EHSI_BRT_KNOB", 28, 3004, 44, nil, "EHSI", "EHSI Brightness Control Knob - Rotate to adjust brightness")
+defineRotary("EHSI_CRS_SET_KNB", 28, 3004, 44, "EHSI", "EHSI CRS Set Knob")
 definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42,"EHSI" , "EHSI HDG Set Button")
 defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 45, "EHSI", "EHSI HDG Set Knob")
 definePushButton("EHSI_MODE", 28, 3001, 46,"EHSI" , "EHSI Mode (M) Button")
