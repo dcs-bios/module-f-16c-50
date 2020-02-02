@@ -1,4 +1,4 @@
--- V1.3a by Warlord (aka BlackLibrary)
+-- V1.4a by Warlord (aka BlackLibrary)
 -- DED Display, MAGV,INS,UHF, CMDS & Initial version of outputs from mainpanel_init.lua by Matchstick
 -- Tested and fixes by BuzzKillington
 
@@ -429,7 +429,7 @@ defineRotary("AIRSPEED_SET_KNB", 46, 3001, 71, "Airspeed Indicator", "SET INDEX 
 defineRotary("ALT_BARO_SET_KNB", 45, 3003, 62, "Altimeter", "Altimeter Barometric Setting Knob")
 defineSpringloaded_3_pos_tumb("ALT_MODE_LV", 45, 3002, 3001, 60, "Altimeter", "Altimeter Mode Lever, ELEC/OFF/PNEU")
 
---SAI
+--SAI ARU-42/A-2
 definePushButton("SAI_CAGE", 47, 3002, 67, "SAI", "SAI Cage Knob, (LMB) Pull to cage")
 defineRotary("SAI_PITCH_TRIM", 47, 3003, 66, "SAI", "SAI Cage Knob, (MW) Adjust aircraft reference symbol")
 
@@ -438,7 +438,7 @@ defineRotary("ADI_PITCH_TRIM", 50, 3001, 22, "ADI", "ADI Pitch Trim Knob")
 
 --EHSI
 definePushButton("EHSI_CRS_SET", 28, 3005, 43,"EHSI" , "EHSI CRS Set")
-definePotentiometer("EHSI_BRT_KNOB", 28, 3004, 44, nil, "EHSI", "EHSI Brightness Control Knob - Rotate to adjust brightness")
+defineRotary("EHSI_CRS_SET_KNB", 28, 3004, 44, "EHSI", "EHSI CRS Set Knob")
 definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42,"EHSI" , "EHSI HDG Set Button")
 defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 45, "EHSI", "EHSI HDG Set Knob")
 definePushButton("EHSI_MODE", 28, 3001, 46,"EHSI" , "EHSI Mode (M) Button")
@@ -454,7 +454,8 @@ defineSpringloaded_3_pos_tumb("SEAT_ADJ", 10, 3014, 3013, 786, "Cockpit Mechanic
 defineToggleSwitch("CANOPY_JETT_THANDLE", 10, 3005, 601,"Cockpit Mechanics" ,"CANOPY JETTISON T-Handle, PULL/STOW")
 defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejection Safety Lever, ARMED/LOCKED")
 defineSpringloaded_3_pos_tumb("CANOPY_SW", 10, 3003, 3002, 606, "Cockpit Mechanics", "Canopy Switch, OPEN/HOLD/CLOSE")
-
+defineToggleSwitch("SEAT_EJECT_SAFE", 10, 3009, 785,"Cockpit Mechanics" ,"Ejection Safety Lever, ARMED/LOCKED")
+defineToggleSwitch("HIDE_STICK", 10, 3015, 796,"Cockpit Mechanics" ,"Hide Stick toggle")
 ------------------------------------------------------------------Warning, Caution and Indicator Lights-------------------------------------------------------------
 
 --Caution Light Panel
@@ -648,6 +649,7 @@ defineFloat("SAI_PITCH", 63, {-1.0, -0.902, -0.793, -0.687, -0.576, -0.450, -0.3
 defineFloat("SAI_BANK", 64, {1.0, -1.0}, "SAI", "SAI Bank")
 defineFloat("SAI_OFF_FLAG", 65, {0, 1}, "SAI", "SAI Off Flag")
 defineFloat("SAI_AIRCRAFTREFERENCESYMBOL", 68, {-1, 1}, "SAI", "SAI Aircraft Reference Symbol")
+defineFloat("SAI_KNB_ARROW", 69, {-1, 1}, "SAI", "SAI Knob Arrow")
 
 --Vertical Velocity Indicator
 defineFloat("VVI", 16, {-1.0, 1.0}, "Vertical Velocity Indicator", "VVI")
@@ -679,7 +681,7 @@ defineFloat("SYSB_PRESSURE", 616, {0.0, 1.0}, "Hydraulic Pressure Indicators", "
 --Engine Indicators
 defineFloat("ENGINE_OIL_PRESSURE", 93, {0, 1}, "Engine", "Oil Pressure Indicator")
 defineFloat("ENGINE_NOZZLE_POSITION", 94, {0.0, 1.0}, "Engine", "Engine Nozzle Position Indicator")
-defineFloat("ENGINE_TACHOMETER", 95, {0.0, 0.114, 0.233, 0.346, 0.377, 0.437, 0.57, 0.705, 0.855, 1.0}, "Engine", "Engine Tachometer Indicator")
+defineFloat("ENGINE_TACHOMETER", 95, {0.0, 1.0}, "Engine", "Engine Tachometer Indicator")
 defineFloat("ENGINE_FTIT", 96, {0.0, 1.0}, "Engine", "Engine FTIT Indicator")
 
 --Hydrazin Volume
@@ -1063,6 +1065,12 @@ DEDLayout_l4["STAT M2 Code"]={4,4}
 DEDLayout_l4["STAT MC Mode"]={9,2,0,"_inv","I"}
 DEDLayout_l4["STAT MC Code"]={12,1}
 DEDLayout_l4["STAT MC Key"]={14,3}
+DEDLayout_l4["STAT M2 Mode"]={0,2,0,"_inv","I"}
+DEDLayout_l4["STAT M2 Lockout Status"]={3,1}
+DEDLayout_l4["STAT M2 Code"]={4,4}
+DEDLayout_l4["STAT MC Mode"]={9,2,0,"_inv","I"}
+DEDLayout_l4["STAT MC Code"]={12,1}
+DEDLayout_l4["STAT MC Key"]={14,3}
 DEDLayout_l4["STAT TIM EVENT - Time"]={18,5}
 DEDLayout_l4["POS M2 Mode"]={1,2,0,"_inv","I"}
 DEDLayout_l4["POS M2 Lockout Status"]={3,1}
@@ -1181,7 +1189,6 @@ DEDLayout_l5["Asterisks on Band_both"]={17,1,20,"","I"}
 DEDLayout_l5["Preset Channel Number"]={20,2}
 DEDLayout_l5["Guard or Backup Frequency"]={10,6}
 --IFF
-DEDLayout_l5["STAT M3 Mode"] = {0,2,0,"_inv","I"}
 DEDLayout_l5["STAT M3 Lockout Status"] = {3,1}
 DEDLayout_l5["STAT M3 Code"] = {4,4}
 DEDLayout_l5["STAT M4 Monitoring"] = {9,3}
@@ -1313,7 +1320,7 @@ local function buildDEDLine(line)
 
 -- Check for present of Objects that indicate Duplicate Key Names that need resolving
 	local guard = DED_fields["Guard Label"]
-	local mode =  DED_fields["Mode label"]
+	local mode = DED_fields["Mode label"]
 	local event = DED_fields["Event Occured"]
 	local alow =  DED_fields["ALOW label"]
 	local bingo = DED_fields["CMDS_BINGO_lbl"]
