@@ -4471,8 +4471,33 @@
                                                        "AOA_INDEX_BRT_KNB": {
                                                                                     "category": "Interior Lights",
                                                                                 "control_type": "limited_dial",
-                                                                                 "description": "AR Status Indicator Dimming Lever",
+                                                                                 "description": "AOA Indexer Dimming Lever",
                                                                                   "identifier": "AOA_INDEX_BRT_KNB",
+                                                                                      "inputs": [ {
+                                                                                                    "description": "set the position of the dial",
+                                                                                                      "interface": "set_state",
+                                                                                                      "max_value": 65535
+                                                                                                }, {
+                                                                                                       "description": "turn the dial left or right",
+                                                                                                         "interface": "variable_step",
+                                                                                                         "max_value": 65535,
+                                                                                                    "suggested_step": 3200
+                                                                                                } ],
+                                                                                     "outputs": [ {
+                                                                                                        "address": 17432,
+                                                                                                    "description": "position of the potentiometer",
+                                                                                                           "mask": 65535,
+                                                                                                      "max_value": 65535,
+                                                                                                       "shift_by": 0,
+                                                                                                         "suffix": "",
+                                                                                                           "type": "integer"
+                                                                                                } ]
+                                                                            },
+                                                       "AR_STATUS_BRT_KNB": {
+                                                                                    "category": "Interior Lights",
+                                                                                "control_type": "limited_dial",
+                                                                                 "description": "AR Status Indicator Dimming Lever",
+                                                                                  "identifier": "AR_STATUS_BRT_KNB",
                                                                                       "inputs": [ {
                                                                                                     "description": "set the position of the dial",
                                                                                                       "interface": "set_state",
