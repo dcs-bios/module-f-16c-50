@@ -8270,7 +8270,7 @@
                                                                                                          "suffix": "",
                                                                                                            "type": "integer"
                                                                                                 } ],
-                                                                            "physical_variant": "toggle_switch"
+                                                                            "physical_variant": "limited_rotary"
                                                                      },
                                                   "UHF_FREQ_10_KNB": {
                                                                                     "category": "UHF",

@@ -1,4 +1,4 @@
--- V1.7 by Warlord (aka BlackLibrary)
+-- V1.7a by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
 --
 -- Tested and fixes by BuzzKillington & afewyards
@@ -27,52 +27,7 @@ local defineString = BIOS.util.defineString
 local defineRockerSwitch = BIOS.util.defineRockerSwitch
 local defineFloat = BIOS.util.defineFloat
 local defineIntegerFromGetter = BIOS.util.defineIntegerFromGetter
-
-local function define3Pos2CommandSwitch(msg, device_id, switch1, switch2, arg_number, category, description)
-	local alloc = moduleBeingDefined.memoryMap:allocateInt{ maxValue = 2 }
-	moduleBeingDefined.exportHooks[#moduleBeingDefined.exportHooks+1] = function(dev0)
-	    local val = dev0:get_argument_value(arg_number)
-		if val == -1 then
-			alloc:setValue(0)
-		elseif val == 0 then
-			alloc:setValue(1)
-		elseif val == 1 then
-			alloc:setValue(2)
-		end
-	end
-	
-	document {
-		identifier = msg,
-		category = category,
-		description = description,
-		control_type = "3Pos_2Command_Switch",
-		inputs = {
-			{ interface = "set_state", max_value = 2, description = "set the switch position" }
-		},
-		outputs = {
-			{ ["type"] = "integer",
-			  suffix = "",
-			  address = alloc.address,
-			  mask = alloc.mask,
-			  shift_by = alloc.shiftBy,
-			  max_value = 2,
-			  description = "switch position -- 0 = Down, 1 = Mid ,  2 = UP"
-			}
-		}
-	}
-	moduleBeingDefined.inputProcessors[msg] = function(toState)
-		local dev = GetDevice(device_id)
-		 if toState == "0" then --off
-			 dev:performClickableAction(switch1, -1) 
-	     elseif toState == "1" then --Middle
-			 dev:performClickableAction(switch1, 0) 
-   		     dev:performClickableAction(switch2, -1)
-		 elseif toState == "2" then --Up
-			 dev:performClickableAction(switch1, 1)  
-			 dev:performClickableAction(switch1, 0) --I think this lets a mag switch flip it back
-		end
-	end
-end
+local define3Pos2CommandSwitch = BIOS.util.define3Pos2CommandSwitch
 
 --Seems to be F16C specific
 local function defineSpringloaded_3_pos_tumb(msg, device_id, downSwitch, upSwitch, arg_number, category, description)
@@ -309,7 +264,7 @@ define3PosTumb("UHF_ANT_SEL_SW", 39, 3014, 712, "Audio Panel", "UHF ANT SEL Swit
 
 --UHF Backup Control Panel
 defineMultipositionSwitch("UHF_CHAN_KNB", 37, 3001, 410, 20, 0.05,"UHF" ,"UHF CHAN Knob")
-defineMultipositionSwitch("UHF_FREQ_100_KNB", 37, 3002, 411, 3, 0.1,"UHF" ,"UHF Manual Frequency Knob 100 MHz")
+defineTumb("UHF_FREQ_100_KNB", 37, 3002, 411, 0.1, {0.1,0.3}, nil, false,"UHF" ,"UHF Manual Frequency Knob 100 MHz")
 defineMultipositionSwitch("UHF_FREQ_10_KNB", 37, 3003, 412, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 10 MHz")
 defineMultipositionSwitch("UHF_FREQ_1_KNB", 37, 3004, 413, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 1 MHz")
 defineMultipositionSwitch("UHF_FREQ_01_KNB", 37, 3005, 414, 10, 0.1,"UHF" ,"UHF Manual Frequency Knob 0.1 MHz")
