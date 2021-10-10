@@ -1,6 +1,5 @@
--- V1.7c by Warlord (aka BlackLibrary)
+-- V1.8c by Warlord (aka BlackLibrary)
 -- Added HARM,VIP,VRP pages by Matchstick
---
 -- Tested and fixes by BuzzKillington & afewyards
 -- DED Display,MAGV,INS,UHF,CMDS,HARM,VIP & VRP by Matchstick
 
@@ -442,9 +441,9 @@ defineRotary("ADI_PITCH_TRIM", 50, 3001, 22, "ADI", "ADI Pitch Trim Knob")
 
 --EHSI
 definePushButton("EHSI_CRS_SET", 28, 3005, 43,"EHSI" , "EHSI CRS Set")
-defineTumb("EHSI_CRS_SET_KNB", 28, 3004, 43, 0.032, {-0.032, 0.032}, nil, false, "EHSI", "EHSI CRS Set Knob")
+defineRotary("EHSI_CRS_SET_KNB", 28, 3004, 43, "EHSI", "EHSI CRS Set Knob")
 definePushButton("EHSI_HDG_SET_BTN", 28, 3003, 42,"EHSI" , "EHSI HDG Set Button")
-defineTumb("EHSI_HDG_SET_KNB", 28, 3002, 44, 0.032, {-0.032, 0.032}, nil, false, "EHSI", "EHSI HDG Set Knob")
+defineRotary("EHSI_HDG_SET_KNB", 28, 3002, 44, "EHSI", "EHSI HDG Set Knob")
 definePushButton("EHSI_MODE", 28, 3001, 46,"EHSI" , "EHSI Mode (M) Button")
 
 --Clock
@@ -859,6 +858,14 @@ DEDLayout_l1["VIP to TGT Label Asteriscs_both"] = {3,1,14,"","I"}
 -- VRP
 DEDLayout_l1["Target to VRP Label"] = {4,10}
 DEDLayout_l1["Target to VRP Label Asteriscs_both"] = {3,1,14,"","I"}
+--HMCS
+DEDLayout_l1["HMCS DISPLAY HMCS_DISPLAY_TOPIC"] = {7,12}
+DEDLayout_l1["HMCS DISPLAY INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["HMCS DISPLAY INS_STPT_IncDecSymbol"] = {23,1}
+DEDLayout_l1["HMCS ALIGN HMCS_ALIGN_TOPIC"] = {6,10}
+DEDLayout_l1["HMCS ALIGN INS_SelectedSteerpoint"] = {20,2}
+DEDLayout_l1["HMCS ALIGN INS_STPT_IncDecSymbol"] = {23,1}
+
 --DEDLayout_l1[""] = {,}
 
 --TODO
@@ -967,7 +974,10 @@ DEDLayout_l2["Target number"] = {4,3}
 DEDLayout_l2["Target number value"] = {9,3,0,"_inv","I"}
 DEDLayout_l2["Target number up down arrows"] = {13,1}
 DEDLayout_l2["Target number Asteriscs_both"] = {8,1,12,"","I"}
-
+--HMCS
+DEDLayout_l2["HMCS DISPLAY HMCS_HUD_BLANK"] = {3,8}
+DEDLayout_l2["HMCS ALIGN HMCS_COARSE"] = {2,6}
+DEDLayout_l2["HMCS ALIGN Asterisks_COARSE_both"] = {1,1,8,"","I"}
 --DEDLayout_l2[""] = {,}
 
 --CNI
@@ -1127,6 +1137,10 @@ DEDLayout_l3["VIP bearing Asteriscs_both"] = {8,1,15,"","I"}
 DEDLayout_l3["Target bearing"] = {3,4}
 DEDLayout_l3["Target bearing value"] = {9,6,0,"_inv","I"}
 DEDLayout_l3["Target bearing Asteriscs_both"] = {8,1,15,"","I"}
+--HMCS
+DEDLayout_l3["HMCS DISPLAY HMCS_CKPT_BLANK"] = {3,9}
+DEDLayout_l3["HMCS ALIGN HMCS_AZ_EL"] = {2,5}
+DEDLayout_l3["HMCS ALIGN Asterisks_AZ_EL_both"] = {1,1,7,"","I"}
 
 --DEDLayout_l3[""] = {,}
 
@@ -1277,6 +1291,10 @@ DEDLayout_l4["Range"] = {4,3}
 DEDLayout_l4["Range value"] = {11,4,0,"_inv","I"}
 DEDLayout_l4["Range Asteriscs_both"] = {10,1,15,"","I"}
 DEDLayout_l4["Range NM"] = {16,2}
+--HMCS
+DEDLayout_l4["HMCS DISPLAY HMCS_DECLUTTER"] = {3,14}
+DEDLayout_l4["HMCS ALIGN HMCS_ROLL"] = {2,4}
+DEDLayout_l4["HMCS ALIGN Asterisks_ROLL_both"] = {1,1,6,"","I"}
 
 --DEDLayout_l4[""] = {,}
 
@@ -1288,6 +1306,7 @@ DEDLayout_l5["IFF Switching"]={14,1}
 DEDLayout_l5["TACAN Label"]={19,1}
 DEDLayout_l5["TACAN Channel"]={20,3}
 DEDLayout_l5["TACAN Band"]={23,1}
+DEDLayout_l5["TACAN A-A Distance"]={19,5}
 --COM
 DEDLayout_l5["Preset Frequency"]={5,6,0,"_inv","I"}
 DEDLayout_l5["Asterisks on PresetFrequency_both"]={4,11,11,"","I"}
@@ -1398,7 +1417,10 @@ DEDLayout_l5["Asterisks_T5_both"] = {17,1,21,"","I"}
 DEDLayout_l5["Elevation"] = {3,4}
 DEDLayout_l5["Elevation value"] = {9,6,0,"_inv","I"}
 DEDLayout_l5["Elevation Asteriscs_both"] = {8,1,17,"","I"}
-
+--HMCS
+DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY"] = {3,9}
+DEDLayout_l5["HMCS DISPLAY HMCS_RWR_DISPLAY_STATUS"] = {13,3}
+DEDLayout_l5["HMCS DISPLAY Asterisks_RWR_DISPLAY_both"] = {12,1,16,"","I"}
 --DEDLayout_l5[""] = {,}
 
 DEDLayout = {DEDLayout_l1, DEDLayout_l2, DEDLayout_l3, DEDLayout_l4, DEDLayout_l5}
@@ -1457,6 +1479,8 @@ local function buildDEDLine(line)
 	local intraflight = DED_fields["INTRAFLIGHT lbl"]
 	local dlnk_A_G = DED_fields["A-G DL lbl"]
 	local nav_status = DED_fields["NAV Status lbl"]
+	local hmcs_display = DED_fields["HMCS_DISPLAY_TOPIC"]
+	local hmcs_align = DED_fields["HMCS_ALIGN_TOPIC"]
 --Loop through Exported DED Objects
 	for k,v in pairs(DED_fields) do
 -- Handle Duplicate Key Names on COM2 Guard page items        
@@ -1486,6 +1510,12 @@ local function buildDEDLine(line)
 -- Handle Duplicate Key Names on NAV page		
 		elseif nav_status ~= nil then
 			label = nav_status.." "..k
+-- Handle Duplicate Key Names on HMCS Display page		
+		elseif hmcs_display ~= nil then
+			label = hmcs_display.." "..k
+-- Handle Duplicate Key Names on HMCS Align page		
+		elseif hmcs_align ~= nil then
+			label = hmcs_align.." "..k
 		else
 			label = k
 		end
@@ -1585,6 +1615,8 @@ end
 defineString("UHF_FREQ_DISP", get_UHF_FREQUENCY, 7, "UHF", "UHF Manual Frequency Display")  
 
 defineFloat("SAI_BANK_ARROW", 72, {-1, 1}, "SAI", "SAI Bank Arrow")
+
+defineToggleSwitch("SEAT_EJECT_HANDLE", 10, 3006, 0,"Cockpit Mechanics" ,"Ejection Handle, PULL/STOW")
 ------------------------------------------------------------------Externals-----------------------------------------------------------------------------------------
 defineIntegerFromGetter("EXT_SPEED_BRAKE_RIGHT", function()
 	return math.floor(LoGetAircraftDrawArgumentValue(182)*65535)
